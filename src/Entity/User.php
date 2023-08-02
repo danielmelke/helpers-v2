@@ -13,6 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
+#[UniqueEntity(fields: ['emailAddress'], message: 'There is already an account with this email address')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -21,7 +22,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private int $id;
 
     #[ORM\Column(length: 180, unique: true)]
-    private ?string $username = null;
+    private string $username;
 
     #[ORM\Column]
     private array $roles = [];
@@ -32,17 +33,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private string $password;
 
+    #[ORM\Column(length: 255, unique: true)]
+    private string $emailAddress;
+
     #[ORM\Column(length: 255)]
-    private ?string $email_address = null;
+    private string $fullName;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $city = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $zip_code = null;
+    private ?int $zipCode = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $address_line = null;
+    private ?string $addressLine = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $birthdate = null;
@@ -125,14 +129,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getEmailAddress(): ?string
+    public function getEmailAddress(): string
     {
-        return $this->email_address;
+        return $this->emailAddress;
     }
 
-    public function setEmailAddress(string $email_address): static
+    public function setEmailAddress(string $emailAddress): static
     {
-        $this->email_address = $email_address;
+        $this->emailAddress = $emailAddress;
 
         return $this;
     }
@@ -151,24 +155,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getZipCode(): ?int
     {
-        return $this->zip_code;
+        return $this->zipCode;
     }
 
-    public function setZipCode(?int $zip_code): static
+    public function setZipCode(?int $zipCode): static
     {
-        $this->zip_code = $zip_code;
+        $this->zipCode = $zipCode;
 
         return $this;
     }
 
     public function getAddressLine(): ?string
     {
-        return $this->address_line;
+        return $this->addressLine;
     }
 
-    public function setAddressLine(?string $address_line): static
+    public function setAddressLine(?string $addressLine): static
     {
-        $this->address_line = $address_line;
+        $this->addressLine = $addressLine;
 
         return $this;
     }
@@ -212,6 +216,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             }
         }
 
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return $this->fullName;
+    }
+
+    /**
+     * @param string $fullName
+     * @return User
+     */
+    public function setFullName(string $fullName): User
+    {
+        $this->fullName = $fullName;
         return $this;
     }
 }
