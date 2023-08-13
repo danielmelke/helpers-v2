@@ -1,20 +1,83 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CommonController!{% endblock %}
+{% block title %}Providing aid for the elderly affected by COVID - Helpers{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <nav class="navbar navbar-expand-lg py-3 bg-secondary" data-bs-theme="light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar icon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ path('main_page') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="container">
+        <h1>Welcome to COVID Elderly Aid</h1>
+        <p>
+            As the world continues to navigate through the challenges of COVID-19, our elderly community needs more support than ever. Join our platform to either offer your help or request assistance.
+        </p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'E:/Projects/GitHub/helpers-v2/src/Controller/CommonController.php'|file_link(0) }}">src/Controller/CommonController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'E:/Projects/GitHub/helpers-v2/templates/common/index.html.twig'|file_link(0) }}">templates/common/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <ul>
+            <li>Post about your needs or offer your services.</li>
+            <li>Help the elderly based on their needs posted on the platform.</li>
+            <li>Rate and appreciate the helpers to acknowledge their efforts.</li>
+            <li>Discuss, comment, and collaborate to ensure efficient help.</li>
+            <li>Create tasks inside posts to better organize and fulfill needs.</li>
+        </ul>
+
+        <div class="cta">
+            <button onclick="location.href='signup.html'">Join Us Today</button>
+        </div>
+
+        <div class="section">
+            <h2>Understanding COVID-19</h2>
+            <p>
+                COVID-19, a disease caused by the novel coronavirus, has spread globally, affecting millions of lives. The elderly, with weakened immune systems or underlying health conditions, are particularly at risk. It's not just the virus itself, but the isolation and mental strain that come with it, impacting their overall well-being.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>The Power of Community</h2>
+            <p>
+                In these trying times, community involvement is paramount. We have the power to turn the tide by uniting, helping, and supporting one another. Our elderly, who have contributed so much to our society, deserve our care and attention. By lending a helping hand, whether it's for grocery shopping, medical appointments, or even a simple phone call, we can make a difference.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Why It Matters</h2>
+            <p>
+                Solidarity and compassion in challenging times define our humanity. COVID-19 has demonstrated that our actions, big or small, have repercussions. By assisting those in need, especially the elderly, we are safeguarding our communities, ensuring everyone's well-being, and forging a path to a stronger post-pandemic world.
+            </p>
+        </div>
+
+        <div class="cta">
+            <button onclick="location.href='signup.html'">Be a Part of the Movement</button>
+        </div>
+
+        <p>
+            Together, let's create a community where everyone is looked after, valued, and cherished.
+        </p>
+    </div>
 {% endblock %}
